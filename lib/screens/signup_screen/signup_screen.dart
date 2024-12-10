@@ -95,7 +95,9 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
             ButtonWidget(
-              onTap: () {},
+              onTap: () {
+                controller.goToLoginScreen();
+              },
               text: 'Create Account',
               color: AppColors.greenColor,
               textStyle: TextStyle(

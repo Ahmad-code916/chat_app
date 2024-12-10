@@ -61,13 +61,19 @@ class OnboardingScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SvgPictureWidget(
-                          svgPicture: SvgPicture.asset(AppAssets.facebookIcon)),
+                        svgPicture: SvgPicture.asset(AppAssets.facebookIcon),
+                        color: AppColors.whiteColor,
+                      ),
                       const SizedBox(width: 20),
                       SvgPictureWidget(
-                          svgPicture: SvgPicture.asset(AppAssets.googleIcon)),
+                        svgPicture: SvgPicture.asset(AppAssets.googleIcon),
+                        color: AppColors.whiteColor,
+                      ),
                       const SizedBox(width: 20),
                       SvgPictureWidget(
-                          svgPicture: SvgPicture.asset(AppAssets.appleIcon)),
+                        svgPicture: SvgPicture.asset(AppAssets.appleIcon),
+                        color: AppColors.whiteColor,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 38),

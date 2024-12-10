@@ -16,7 +16,7 @@ class TextFormFieldWidget extends StatelessWidget {
           borderSide: BorderSide(color: AppColors.lightGreyColor),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.lightGreyColor, width: 2),
+          borderSide: BorderSide(color: AppColors.lightGreyColor),
         ),
       ),
       onTapOutside: (event) {

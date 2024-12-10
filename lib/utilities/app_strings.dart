@@ -12,4 +12,12 @@ class AppStrings {
   static const String yourEmail = 'Your Email';
   static const String password = 'Password';
   static const String confirmPassword = 'Confirm Password';
+  static const String loginToChatBox = 'Login to Chatbox';
+  static const String welcomeBack =
+      'Welcome back!Sign in using your social\naccount or email to continue us';
+  static const String forgotPassword = 'Forgot Password?';
+  static const String forgotPasswordText =
+      'Give your email we will send you a link by which you can change your password.';
+  static const String send = 'Send';
+  static const String home = 'Home';
 }
