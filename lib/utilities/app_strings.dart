@@ -20,4 +20,7 @@ class AppStrings {
       'Give your email we will send you a link by which you can change your password.';
   static const String send = 'Send';
   static const String home = 'Home';
+  static const String alexLinderson = 'Alex Linderson';
+  static const String howAreYou = 'How are you today?';
+  static const String messageTime = '2 min ago';
 }

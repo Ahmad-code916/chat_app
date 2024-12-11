@@ -12,6 +12,24 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(AppAssets.messageImage),
+                label: 'Message'),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(AppAssets.callImage), label: 'Calls'),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(AppAssets.userImage), label: 'Contacts'),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(AppAssets.settingsImage),
+                label: 'Settings'),
+          ],
+          backgroundColor: AppColors.whiteColor,
+          showUnselectedLabels: true,
+          unselectedLabelStyle: TextStyle(color: AppColors.blackColor),
+
+        ),
         body: Column(
           children: [
             Expanded(
@@ -64,20 +82,42 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Column(
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: AppColors.greenColor)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3),
-                                    child: Image.asset(AppAssets.boyImage,
-                                        height: 50),
-                                  ),
+                                Stack(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                              color: AppColors.greenColor)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(3),
+                                        child: Image.asset(AppAssets.boyImage,
+                                            height: 50),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 40,
+                                      right: 1,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: AppColors.whiteColor,
+                                            shape: BoxShape.circle),
+                                        child: Center(
+                                          child: Padding(
+                                              padding: const EdgeInsets.all(1),
+                                              child: Icon(
+                                                AppIcons.addIcon,
+                                                size: 17,
+                                                color: AppColors.blackColor,
+                                              )),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  'Name',
+                                  'My Status',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
@@ -208,7 +248,7 @@ class HomeScreen extends StatelessWidget {
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -297,14 +337,105 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Expanded(
                       child: Container(
+                        width: double.infinity,
                         decoration: BoxDecoration(
-                            color: AppColors.whiteColor,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50))),
+                          color: AppColors.whiteColor,
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            topRight: Radius.circular(50),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 41, left: 24, right: 24),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: ListView.builder(
+                                  itemCount: 5,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 30),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              const CircleAvatar(
+                                                radius: 30,
+                                                backgroundImage:
+                                                    ExactAssetImage(
+                                                        AppAssets.boyImage),
+                                              ),
+                                              const SizedBox(width: 12),
+                                              Column(
+                                                children: [
+                                                  Text(
+                                                    AppStrings.alexLinderson,
+                                                    style: TextStyle(
+                                                        color: AppColors
+                                                            .blackColor,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        fontSize: 20),
+                                                  ),
+                                                  Text(
+                                                    AppStrings.howAreYou,
+                                                    style: TextStyle(
+                                                        color:
+                                                            AppColors.greyColor,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        fontSize: 14),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Text(AppStrings.messageTime,
+                                                  style: TextStyle(
+                                                      color:
+                                                          AppColors.greyColor,
+                                                      fontSize: 12)),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color: AppColors.redColor,
+                                                    shape: BoxShape.circle),
+                                                child: Center(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(8),
+                                                    child: Text(
+                                                      '4',
+                                                      style: TextStyle(
+                                                          color: AppColors
+                                                              .whiteColor),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     )
                   ],

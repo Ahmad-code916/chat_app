@@ -9,4 +9,8 @@ class AppAssets {
   static const String appleImageBlack = 'assets/images/apple_icon_black.svg';
   static const String searchImage = 'assets/images/search_image.svg';
   static const String boyImage = 'assets/images/boy_image.png';
+  static const String messageImage = 'assets/images/message_image.svg';
+  static const String callImage = 'assets/images/call_image.svg';
+  static const String userImage = 'assets/images/user_image.svg';
+  static const String settingsImage = 'assets/images/settings_image.svg';
 }
