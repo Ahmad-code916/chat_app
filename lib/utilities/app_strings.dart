@@ -23,4 +23,5 @@ class AppStrings {
   static const String alexLinderson = 'Alex Linderson';
   static const String howAreYou = 'How are you today?';
   static const String messageTime = '2 min ago';
+  static const String activeNow = 'Active Now';
 }

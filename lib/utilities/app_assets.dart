@@ -13,4 +13,6 @@ class AppAssets {
   static const String callImage = 'assets/images/call_image.svg';
   static const String userImage = 'assets/images/user_image.svg';
   static const String settingsImage = 'assets/images/settings_image.svg';
+  static const String voiceCallImage = 'assets/images/voice_call.svg';
+  static const String videoCallImage = 'assets/images/video_call.svg';
 }
