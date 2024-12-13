@@ -15,4 +15,8 @@ class AppAssets {
   static const String settingsImage = 'assets/images/settings_image.svg';
   static const String voiceCallImage = 'assets/images/voice_call.svg';
   static const String videoCallImage = 'assets/images/video_call.svg';
+  static const String clipImage = 'assets/images/clip_image.svg';
+  static const String fileImage = 'assets/images/files_image.svg';
+  static const String cameraImage = 'assets/images/camera_image.svg';
+  static const String microphoneImage = 'assets/images/microphone_image.svg';
 }
