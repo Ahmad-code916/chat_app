@@ -113,6 +113,7 @@ class ChatScreen extends StatelessWidget {
                     Expanded(
                       child: TextFormField(
                         controller: controller.textController,
+                        onChanged: controller.onChange,
                         minLines: 1,
                         maxLines: null,
                         decoration: InputDecoration(
@@ -136,13 +137,15 @@ class ChatScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Row(
-                      children: [
-                        SvgPicture.asset(AppAssets.cameraImage),
-                        const SizedBox(width: 12),
-                        SvgPicture.asset(AppAssets.microphoneImage),
-                      ],
-                    )
+                    controller.textController.text.isEmpty
+                        ? Row(
+                            children: [
+                              SvgPicture.asset(AppAssets.cameraImage),
+                              const SizedBox(width: 12),
+                              SvgPicture.asset(AppAssets.microphoneImage),
+                            ],
+                          )
+                        : Icon(Icons.send),
                   ],
                 ),
               ),
