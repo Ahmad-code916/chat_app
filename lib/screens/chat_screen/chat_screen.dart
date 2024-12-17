@@ -3,6 +3,7 @@ import 'package:flutter_app/screens/chat_screen/chat_screen_controller.dart';
 import 'package:flutter_app/utilities/app_assets.dart';
 import 'package:flutter_app/utilities/app_colors.dart';
 import 'package:flutter_app/utilities/app_strings.dart';
+import 'package:flutter_app/widgets/bottom_sheet_widget.dart';
 import 'package:flutter_app/widgets/message_container_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -88,7 +89,7 @@ class ChatScreen extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 color: AppColors.whiteColor,
-                child: SingleChildScrollView(
+                child: const SingleChildScrollView(
                   child: Column(
                     children: [
                       SizedBox(height: 20),
@@ -108,8 +109,17 @@ class ChatScreen extends StatelessWidget {
                     left: 20, right: 20, top: 25, bottom: 25),
                 child: Row(
                   children: [
-                    SvgPicture.asset(AppAssets.clipImage),
-                    SizedBox(width: 7),
+                    GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                            context: Get.context!,
+                            builder: (context) {
+                              return BottomSheetWidget();
+                            },
+                          );
+                        },
+                        child: SvgPicture.asset(AppAssets.clipImage)),
+                    const SizedBox(width: 7),
                     Expanded(
                       child: TextFormField(
                         controller: controller.textController,
@@ -145,7 +155,18 @@ class ChatScreen extends StatelessWidget {
                               SvgPicture.asset(AppAssets.microphoneImage),
                             ],
                           )
-                        : Icon(Icons.send),
+                        : Container(
+                            decoration: BoxDecoration(
+                                color: AppColors.lightGreenColorTwo,
+                                shape: BoxShape.circle),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(
+                                Icons.send,
+                                color: AppColors.whiteColor,
+                              ),
+                            ),
+                          )
                   ],
                 ),
               ),

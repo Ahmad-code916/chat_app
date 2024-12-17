@@ -24,4 +24,17 @@ class AppStrings {
   static const String howAreYou = 'How are you today?';
   static const String messageTime = '2 min ago';
   static const String activeNow = 'Active Now';
+  static const String shareContent = 'Share Content';
+  static const String camera = 'Camera';
+  static const String document = 'Documents';
+  static const String createPoll = 'create a poll';
+  static const String media = 'Media';
+  static const String contact = 'Contact';
+  static const String location = 'Location';
+  static const String sendImage = 'Send Image';
+  static const String shareFiles = 'Share your files';
+  static const String createPollQuery = 'Create a poll for any query';
+  static const String shareVideos = 'Share photos and videos';
+  static const String shareContacts = 'shareContacts';
+  static const String shareLocation = 'shareLocation';
 }

@@ -19,4 +19,9 @@ class AppAssets {
   static const String fileImage = 'assets/images/files_image.svg';
   static const String cameraImage = 'assets/images/camera_image.svg';
   static const String microphoneImage = 'assets/images/microphone_image.svg';
+  static const String documentImage = 'assets/images/document_image.svg';
+  static const String pollImage = 'assets/images/poll_image.svg';
+  static const String mediaImage = 'assets/images/media_image.svg';
+  static const String locationImage = 'assets/images/location_image.svg';
+  static const String contactImage = 'assets/images/user_icon_image.svg';
 }
