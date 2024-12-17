@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "570501809233",
+    "firebase_url": "https://testing-cli2-5a3ac-default-rtdb.firebaseio.com",
+    "project_id": "testing-cli2-5a3ac",
+    "storage_bucket": "testing-cli2-5a3ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570501809233:android:bd9de0c8d59e84cc5ee470",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBITpCQLmwpIGp1U6CCmpBXbjdoqDNueas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570501809233:android:7e8ca85a9882a0ae5ee470",
+        "android_client_info": {
+          "package_name": "com.example.new_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBITpCQLmwpIGp1U6CCmpBXbjdoqDNueas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570501809233:android:c8ad152da9d35fbb5ee470",
+        "android_client_info": {
+          "package_name": "com.mycompany.newapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBITpCQLmwpIGp1U6CCmpBXbjdoqDNueas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
