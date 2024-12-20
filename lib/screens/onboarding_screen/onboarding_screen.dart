@@ -108,12 +108,17 @@ class OnboardingScreen extends StatelessWidget {
                         AppStrings.alreadyHaveAccount,
                         style: TextStyle(color: AppColors.whiteColor),
                       ),
-                      Text(
-                        AppStrings.login,
-                        style: TextStyle(
-                            color: AppColors.whiteColor,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16),
+                      GestureDetector(
+                        onTap: () {
+                          controller.goToLoginScreen();
+                        },
+                        child: Text(
+                          AppStrings.login,
+                          style: TextStyle(
+                              color: AppColors.whiteColor,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16),
+                        ),
                       ),
                     ],
                   )

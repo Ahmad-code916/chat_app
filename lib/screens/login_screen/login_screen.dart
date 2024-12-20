@@ -104,7 +104,9 @@ class LoginScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
-                    const TextFormFieldWidget(),
+                    TextFormFieldWidget(
+                      controller: controller.emailController,
+                    ),
                     const SizedBox(height: 30),
                     Text(
                       AppStrings.password,
@@ -113,19 +115,42 @@ class LoginScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
-                    const TextFormFieldWidget(),
+                    TextFormFieldWidget(
+                      controller: controller.passwordController,
+                    ),
                   ],
                 ),
               ),
             ),
-            ButtonWidget(
-              onTap: () {
-                controller.goToHomeScreen();
-              },
-              text: AppStrings.login,
-              color: AppColors.greenColor,
-              textStyle: TextStyle(color: AppColors.whiteColor),
-            ),
+            GetBuilder<LoginScreenController>(builder: (context) {
+              return GestureDetector(
+                onTap: () {
+                  controller.login();
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.greenColor,
+                  ),
+                  child: controller.isLoading
+                      ? Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.whiteColor,
+                          ),
+                        )
+                      : Text(
+                          'Log in',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: AppColors.whiteColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700),
+                        ),
+                ),
+              );
+            }),
             const SizedBox(height: 16),
             GestureDetector(
               onTap: () {

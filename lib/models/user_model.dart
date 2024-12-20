@@ -4,16 +4,12 @@ class UserModel {
   String? uid;
   String? name;
   String? email;
-  String? password;
-  String? confirmPassword;
   String? image;
 
   UserModel({
     this.uid,
     this.name,
     this.email,
-    this.password,
-    this.confirmPassword,
     this.image,
   });
 
@@ -22,8 +18,6 @@ class UserModel {
       uid: map["uid"] ?? "",
       name: map["name"] ?? "",
       email: map["email"] ?? "",
-      password: map["password"] ?? "",
-      confirmPassword: map["confirmPassword"] ?? "",
       image: map["image"] ?? "",
     );
   }
@@ -33,8 +27,6 @@ class UserModel {
       "uid": uid,
       "name": name,
       "email": email,
-      "password": password,
-      "confirmPassword": confirmPassword,
       "image": image,
     };
   }

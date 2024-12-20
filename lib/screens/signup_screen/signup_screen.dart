@@ -3,7 +3,6 @@ import 'package:flutter_app/screens/signup_screen/signup_screen_controller.dart'
 import 'package:flutter_app/utilities/app_colors.dart';
 import 'package:flutter_app/utilities/app_icons.dart';
 import 'package:flutter_app/utilities/app_strings.dart';
-import 'package:flutter_app/widgets/button_widget.dart';
 import 'package:flutter_app/widgets/text_form_field_widget.dart';
 import 'package:get/get.dart';
 
@@ -30,7 +29,7 @@ class SignupScreen extends StatelessWidget {
                           controller.goBack();
                         },
                         child: const Icon(AppIcons.backIcon)),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 20),
                     Align(
                       alignment: Alignment.center,
                       child: Text(
@@ -53,7 +52,38 @@ class SignupScreen extends StatelessWidget {
                             fontSize: 14),
                       ),
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 20),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Stack(
+                        children: [
+                          const CircleAvatar(
+                            radius: 60,
+                          ),
+                          Positioned(
+                            right: 10,
+                            bottom: 3,
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.greenColor),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(6.0),
+                                  child: Icon(
+                                    Icons.camera_alt,
+                                    color: AppColors.whiteColor,
+                                    size: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 30),
                     Text(
                       AppStrings.yourName,
                       style: TextStyle(
@@ -61,7 +91,9 @@ class SignupScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
-                    const TextFormFieldWidget(),
+                    TextFormFieldWidget(
+                      controller: controller.nameController,
+                    ),
                     const SizedBox(height: 30),
                     Text(
                       AppStrings.yourEmail,
@@ -70,7 +102,9 @@ class SignupScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
-                    const TextFormFieldWidget(),
+                    TextFormFieldWidget(
+                      controller: controller.emailController,
+                    ),
                     const SizedBox(height: 30),
                     Text(
                       AppStrings.password,
@@ -79,7 +113,9 @@ class SignupScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
-                    const TextFormFieldWidget(),
+                    TextFormFieldWidget(
+                      controller: controller.passwordController,
+                    ),
                     const SizedBox(height: 30),
                     Text(
                       AppStrings.confirmPassword,
@@ -88,23 +124,43 @@ class SignupScreen extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 14),
                     ),
-                    const TextFormFieldWidget(),
+                    TextFormFieldWidget(
+                      controller: controller.confirmPasswordController,
+                    ),
                     const SizedBox(height: 30),
                   ],
                 ),
               ),
             ),
-            ButtonWidget(
-              onTap: () {
-                controller.goToLoginScreen();
-              },
-              text: 'Create Account',
-              color: AppColors.greenColor,
-              textStyle: TextStyle(
-                  color: AppColors.whiteColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700),
-            ),
+            GetBuilder<SignUpScreenController>(builder: (context) {
+              return GestureDetector(
+                onTap: () {
+                  controller.signUp();
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.greenColor,
+                  ),
+                  child: controller.isLoading
+                      ? Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.whiteColor,
+                          ),
+                        )
+                      : Text(
+                          'Create Account',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: AppColors.whiteColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700),
+                        ),
+                ),
+              );
+            }),
             const SizedBox(height: 40),
           ],
         ),

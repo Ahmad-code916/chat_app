@@ -58,7 +58,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontSize: 14),
                   ),
-                  const TextFormFieldWidget(),
+                  TextFormFieldWidget(
+                    controller: controller.emailController,
+                  ),
                 ],
               ),
             ),
