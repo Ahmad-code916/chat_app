@@ -1,10 +1,15 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/models/user_model.dart';
 import 'package:flutter_app/screens/login_screen/login_screen.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SignUpScreenController extends GetxController {
   final TextEditingController emailController = TextEditingController();
@@ -17,7 +22,46 @@ class SignUpScreenController extends GetxController {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
+  File? image;
+
+  void pickImage() async {
+    try {
+      final imagePicker = ImagePicker();
+      final pickedImage =
+          await imagePicker.pickImage(source: ImageSource.gallery);
+      if (pickedImage != null) {
+        image = File(pickedImage.path);
+        update();
+      } else {
+        showOkAlertDialog(
+            context: Get.context!,
+            title: 'Error',
+            message: 'Image not selected');
+      }
+    } catch (e) {
+      showOkAlertDialog(
+          context: Get.context!, title: 'Error', message: e.toString());
+    }
+  }
+
+  Future<String?> uploadImage() async {
+    if (image == null) return null;
+    try {
+      String fileName =
+          "new_app_user_image/${FirebaseAuth.instance.currentUser?.uid ?? ""}.jpg";
+      final ref = FirebaseStorage.instance.ref(fileName);
+      final uploadTask = await ref.putFile(image!);
+      final downloadUrl = await uploadTask.ref.getDownloadURL();
+      return downloadUrl;
+    } catch (e) {
+      showOkAlertDialog(
+          context: Get.context!, title: 'Error', message: e.toString());
+      return null;
+    }
+  }
+
   void signUp() async {
+    final imageUrl = await uploadImage();
     if (nameController.text.isEmpty) {
       showOkAlertDialog(
           context: Get.context!,
@@ -38,6 +82,11 @@ class SignUpScreenController extends GetxController {
           context: Get.context!,
           title: 'Error',
           message: 'Please enter your confirm password');
+    } else if (image == null) {
+      showOkAlertDialog(
+          context: Get.context!,
+          title: 'Error',
+          message: 'Please select your image');
     } else {
       try {
         isLoading = true;
@@ -48,7 +97,8 @@ class SignUpScreenController extends GetxController {
         final userModel = UserModel(
             uid: userCredential.user?.uid ?? "",
             name: nameController.text,
-            email: emailController.text);
+            email: emailController.text,
+            image: imageUrl);
         await fireStore
             .collection(UserModel.tableName)
             .doc(userModel.uid)

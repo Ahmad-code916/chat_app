@@ -2,9 +2,12 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/models/user_model.dart';
 import 'package:flutter_app/screens/forgot_password_screen/forgot_password_screen.dart';
 import 'package:flutter_app/screens/home_screen/home_screen.dart';
+import 'package:flutter_app/screens/login_screen/login_screen.dart';
 import 'package:flutter_app/utilities/app_colors.dart';
+import 'package:flutter_app/utilities/user_base_conroller.dart';
 import 'package:get/get.dart';
 
 class LoginScreenController extends GetxController {
