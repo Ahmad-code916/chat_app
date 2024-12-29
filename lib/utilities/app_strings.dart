@@ -37,4 +37,5 @@ class AppStrings {
   static const String shareVideos = 'Share photos and videos';
   static const String shareContacts = 'shareContacts';
   static const String shareLocation = 'shareLocation';
+  static const String settings = 'Settings';
 }

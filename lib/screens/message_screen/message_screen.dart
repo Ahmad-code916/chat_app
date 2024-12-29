@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/message_screen/message_screen_controller.dart';
+import 'package:flutter_app/utilities/user_base_conroller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -49,13 +50,11 @@ class MessageScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                                 fontSize: 18),
                           ),
-                          Container(
-                            decoration: BoxDecoration(shape: BoxShape.circle),
-                            child: Image.asset(
-                              AppAssets.boyImage,
-                              height: 40,
-                            ),
-                          )
+                          CircleAvatar(
+                            radius: 25,
+                            backgroundImage: NetworkImage(
+                                UserBaseController.userData.image ?? ""),
+                          ),
                         ],
                       ),
                     ),

@@ -69,7 +69,7 @@ class SignupScreen extends StatelessWidget {
                               bottom: 3,
                               child: GestureDetector(
                                 onTap: () {
-                                  controller.pickImage();
+                                  controller.selectImageFromCameraOrGallery();
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(

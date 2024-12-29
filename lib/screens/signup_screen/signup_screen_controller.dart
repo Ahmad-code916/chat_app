@@ -6,8 +6,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_app/models/user_model.dart';
 import 'package:flutter_app/screens/login_screen/login_screen.dart';
+import 'package:flutter_app/utilities/app_assets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -24,11 +27,10 @@ class SignUpScreenController extends GetxController {
 
   File? image;
 
-  void pickImage() async {
+  void pickImage(ImageSource imageSource) async {
     try {
       final imagePicker = ImagePicker();
-      final pickedImage =
-          await imagePicker.pickImage(source: ImageSource.gallery);
+      final pickedImage = await imagePicker.pickImage(source: imageSource);
       if (pickedImage != null) {
         image = File(pickedImage.path);
         update();
@@ -42,6 +44,42 @@ class SignUpScreenController extends GetxController {
       showOkAlertDialog(
           context: Get.context!, title: 'Error', message: e.toString());
     }
+  }
+
+  void selectImageFromCameraOrGallery() async {
+    Get.defaultDialog(
+        title: 'Select Image',
+        content: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                pickImage(ImageSource.camera);
+                Get.back();
+              },
+              child: Row(
+                children: [
+                  SvgPicture.asset(AppAssets.cameraImage),
+                  const SizedBox(width: 10),
+                  const Text('Pick Image from camera'),
+                ],
+              ),
+            ),
+            const SizedBox(height: 15),
+            GestureDetector(
+              onTap: () {
+                pickImage(ImageSource.gallery);
+                Get.back();
+              },
+              child: const Row(
+                children: [
+                  Icon(Icons.image_outlined),
+                  SizedBox(width: 10),
+                  Text('Select Image from gallery'),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
   Future<String?> uploadImage() async {

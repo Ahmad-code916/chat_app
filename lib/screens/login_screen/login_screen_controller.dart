@@ -37,9 +37,17 @@ class LoginScreenController extends GetxController {
             email: emailController.text, password: passwordController.text);
         isLoading = false;
         update();
+        final userData = await fireStore
+            .collection(UserModel.tableName)
+            .doc(firebaseAuth.currentUser?.uid ?? "")
+            .get();
+        if (userData.exists) {
+          UserBaseController.updateUserModel(
+              UserModel.fromMap(userData.data() ?? {}));
+        }
         Get.snackbar('Congratulations', 'Login Successfully!',
             backgroundColor: AppColors.whiteColor);
-        Get.to(() => HomeScreen());
+        Get.offAll(() => HomeScreen());
         emailController.clear();
         passwordController.clear();
       } catch (e) {
