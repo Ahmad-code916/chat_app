@@ -44,6 +44,8 @@ class LoginScreenController extends GetxController {
         if (userData.exists) {
           UserBaseController.updateUserModel(
               UserModel.fromMap(userData.data() ?? {}));
+          print(
+              '^^^^^^^^^^^^^^^^^^^^^^^^^^^^${UserBaseController.userData.name ?? ""}');
         }
         Get.snackbar('Congratulations', 'Login Successfully!',
             backgroundColor: AppColors.whiteColor);

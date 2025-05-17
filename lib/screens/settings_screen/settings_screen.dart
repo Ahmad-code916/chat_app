@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/login_screen/login_screen.dart';
 import 'package:flutter_app/screens/message_screen/message_screen_controller.dart';
 import 'package:flutter_app/screens/settings_screen/settings_screen_controller.dart';
 import 'package:flutter_app/utilities/user_base_conroller.dart';
@@ -75,12 +77,12 @@ class SettingsScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  CircleAvatar(
-                                    radius: 28,
-                                    backgroundImage: NetworkImage(
-                                        UserBaseController.userData.image ??
-                                            ""),
-                                  ),
+                                  // CircleAvatar(
+                                  //   radius: 28,
+                                  //   backgroundImage: NetworkImage(
+                                  //       UserBaseController.userData.image ??
+                                  //           ""),
+                                  // ),
                                   const SizedBox(width: 12),
                                   Column(
                                     children: [
@@ -89,7 +91,18 @@ class SettingsScreen extends StatelessWidget {
                                     ],
                                   )
                                 ],
-                              )
+                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    controller.showDialogue();
+                                  },
+                                  child: const Text('Change Language')),
+                              GestureDetector(
+                                  onTap: () {
+                                    FirebaseAuth.instance.signOut();
+                                    Get.offAll(() => LoginScreen());
+                                  },
+                                  child: const Text('Logout'))
                             ],
                           ),
                         ),

@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 class AppStrings {
   static const String connectFriend = 'Connect friends easily & quickly';
   static const String ourChatApp =
@@ -38,4 +40,19 @@ class AppStrings {
   static const String shareContacts = 'shareContacts';
   static const String shareLocation = 'shareLocation';
   static const String settings = 'Settings';
+}
+
+class AppTranslations extends Translations {
+  @override
+  // TODO: implement keys
+  Map<String, Map<String, String>> get keys => {
+        'en_US': {
+          'connectFriend': 'Connect friends easily & quickly',
+          'home': 'home',
+        },
+        'ur_PK': {
+          'connectFriend': 'دوستوں کو آسانی اور تیزی سے جوڑیں',
+          'home': 'ہوم',
+        },
+      };
 }

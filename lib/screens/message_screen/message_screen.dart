@@ -3,7 +3,6 @@ import 'package:flutter_app/screens/message_screen/message_screen_controller.dar
 import 'package:flutter_app/utilities/user_base_conroller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
 import '../../utilities/app_assets.dart';
 import '../../utilities/app_colors.dart';
 import '../../utilities/app_icons.dart';
@@ -50,11 +49,12 @@ class MessageScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                                 fontSize: 18),
                           ),
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundImage: NetworkImage(
-                                UserBaseController.userData.image ?? ""),
-                          ),
+                          // CircleAvatar(
+                          //   radius: 25,
+                          //   backgroundImage: NetworkImage(
+                          //       UserBaseController.userData.image ?? ""),
+                          // ),
+
                         ],
                       ),
                     ),
@@ -101,14 +101,14 @@ class MessageScreen extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'My Status',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -122,14 +122,14 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -143,14 +143,14 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -164,14 +164,14 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -185,14 +185,14 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -206,14 +206,35 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
+                            Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                          color: AppColors.greenColor)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Image.asset(AppAssets.boyImage,
+                                        height: 50),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  'Name',
+                                  style: TextStyle(color: AppColors.whiteColor),
+                                )
+                              ],
+                            ),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -248,14 +269,14 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -269,14 +290,14 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
                                 )
                               ],
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Column(
                               children: [
                                 Container(
@@ -290,28 +311,7 @@ class MessageScreen extends StatelessWidget {
                                         height: 50),
                                   ),
                                 ),
-                                SizedBox(height: 10),
-                                Text(
-                                  'Name',
-                                  style: TextStyle(color: AppColors.whiteColor),
-                                )
-                              ],
-                            ),
-                            SizedBox(width: 16),
-                            Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: AppColors.greenColor)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3),
-                                    child: Image.asset(AppAssets.boyImage,
-                                        height: 50),
-                                  ),
-                                ),
-                                SizedBox(height: 10),
+                                const SizedBox(height: 10),
                                 Text(
                                   'Name',
                                   style: TextStyle(color: AppColors.whiteColor),
